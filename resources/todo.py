@@ -19,10 +19,14 @@ NOT_AUTH = "You are not authorized."
 DELETED = "Todo '{}' deleted."
 
 class Todo(Resource):
+    @jwt_required
     def get(self, name):
+        user_id = get_jwt_identity()
         todo = TodoModel.find_by_name(name)
-        if todo:
+        if todo.user_id == user_id:
             return todo_schema.dump(todo), 200
+        else:
+            return {'message': NOT_AUTH}, 401
         return {'message': NOT_FOUND.format(name)}, 404
     
     @jwt_required
@@ -49,8 +53,10 @@ class Todo(Resource):
         return {'message': DELETED.format(name)}, 200
 
 class TodoList(Resource):
+    @jwt_required
     def get(self):
-        return todo_list_schema.dump(TodoModel.find_all()), 200
+        user_id = get_jwt_identity()
+        return todo_list_schema.dump(TodoModel.find_by_user_id(user_id)), 200
 
 class GroupTodo(Resource):
     @jwt_required
