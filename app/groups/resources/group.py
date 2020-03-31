@@ -1,6 +1,6 @@
 from flask_restful import Resource
-from models.group import GroupModel
-from schemas.group import GroupSchema
+from ...models import GroupModel
+from ...schemas import GroupSchema
 
 group_schema = GroupSchema()
 

@@ -1,9 +1,11 @@
 from flask_restful import Resource
 from flask import request
-from models.user import UserModel
-from models.group import GroupModel
-from schemas.user_group import UserGroupsSchema
-from db import db
+from ...models import UserModel
+# from models.group import GroupModel
+from ...models import GroupModel
+# from schemas.user_group import UserGroupsSchema
+from ...schemas import UserGroupsSchema
+from ...db import db
 
 USER_NOT_FOUND = "User '{}' not found."
 GROUP_NOT_FOUND = "Group '{}' not found."

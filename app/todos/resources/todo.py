@@ -4,11 +4,11 @@ from flask_jwt_extended import (
     get_jwt_identity,
     jwt_required
 )
-from models.todo import TodoModel
-from models.user import UserModel
-from models.group import GroupModel
-from models.user_groups import UserGroupsModel
-from schemas.todo import TodoSchema
+from ...models import TodoModel
+from ...models import UserModel
+from ...models import GroupModel
+from ...models import UserGroupsModel
+from ...schemas import TodoSchema
 
 todo_schema = TodoSchema()
 todo_list_schema = TodoSchema(many=True)

@@ -6,8 +6,8 @@ from flask_jwt_extended import (
     get_jwt_identity,
     jwt_refresh_token_required
 )
-from models.user import UserModel
-from schemas.user import UserSchema
+from ...models import UserModel
+from ...schemas import UserSchema
 
 user_schema = UserSchema()
 

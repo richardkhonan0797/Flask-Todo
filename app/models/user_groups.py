@@ -1,4 +1,4 @@
-from db import db
+from ..db import db
 
 class UserGroupsModel(db.Model):
     __tablename__ = 'user_groups'

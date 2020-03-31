@@ -1,7 +1,7 @@
-from ma import ma
-from models.group import GroupModel
-from models.todo import TodoModel
-from models.user import UserModel
+from ..ma import ma
+from ..models.group import GroupModel
+from ..models.todo import TodoModel
+from ..models.user import UserModel
 
 class GroupSchema(ma.ModelSchema):
     todos = ma.Nested("TodoSchema", many=True, exclude=('group', 'group_id'))
